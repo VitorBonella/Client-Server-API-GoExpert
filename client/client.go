@@ -15,12 +15,13 @@ func main(){
 	jsonCotacao, cotacao, err := callServer()
 	if err != nil{
 		fmt.Println("Error calling server")
+		return
 	}
-
 	fmt.Println(jsonCotacao)
 
 	if err := os.WriteFile("cotacao.txt",[]byte(fmt.Sprintf("Dólar: {%s}",cotacao)),0644); err != nil{
 		fmt.Println("Error writing cotacao to a file")
+		return
 	}
 
 }
