@@ -56,8 +56,8 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	ctxDB, cancel := context.WithTimeout(context.Background(), 10*time.Millisecond)
 	defer cancel()
 	tx := DB.WithContext(ctxDB)
-	tx.Create(cotacao.USDBRL)
-
+	tx.Create(&cotacao.USDBRL)
+	
 	//write cotacao to client
 	w.Write([]byte("\n\n BID-> " + cotacao.USDBRL.Bid))
 
