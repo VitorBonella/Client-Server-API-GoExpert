@@ -64,7 +64,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 }
 
 func getCotacao() (*ExchangeRateResponse, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 600*time.Millisecond) //only can get with 600 ms on my pc
+	ctx, cancel := context.WithTimeout(context.Background(), 200*time.Millisecond) //only can get with 600 ms on my pc
 	defer cancel()
 
 	req, err := http.NewRequestWithContext(ctx, "GET", "https://economia.awesomeapi.com.br/json/last/USD-BRL", nil)
